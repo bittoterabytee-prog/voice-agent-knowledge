@@ -3,7 +3,7 @@
 Product delivery roadmap for the AI Voice Appointment Agent POC.  
 Use this when **creating, prioritizing, or updating Jira tickets** so work stays in the right sprint.
 
-**Current sprint:** Sprint 2 — Basic Voice Agent  
+**Current sprint:** Sprint 3 — Multilingual Voice  
 **Source of truth for backend scope:** [`../backend/SRD_BACKEND.md`](../backend/SRD_BACKEND.md)  
 **Ticket format:** [`TICKET_STANDARDS.md`](TICKET_STANDARDS.md)
 
@@ -14,15 +14,15 @@ Use this when **creating, prioritizing, or updating Jira tickets** so work stays
 | Sprint | Theme | Status |
 | ------ | ----- | ------ |
 | **1** | Foundation | ✅ Done |
-| **2** | Basic Voice Agent | ← **Now** (active) |
-| **3** | Multilingual Voice | Planned |
+| **2** | Basic Voice Agent | ✅ Done |
+| **3** | Multilingual Voice | ← **Now** (active) |
 | **4** | Appointment System | Planned |
 | **5** | Human-like Conversation Behavior | Planned |
 | **6** | RAG + Tools | Planned |
 | **7** | Adaptive Voice + Verification | Planned |
 | **8** | 300 Test Scenarios + Final Demo | Planned |
 
-When drafting Jira work: put new tickets in the **current sprint** unless the user explicitly targets a later sprint. Label with sprint theme (`sprint-2`, `voice`, etc.) when the board supports labels.
+When drafting Jira work: put new tickets in the **current sprint** unless the user explicitly targets a later sprint. Label with sprint theme (`sprint-3`, `multilingual`, `voice`, etc.) when the board supports labels.
 
 ---
 
@@ -43,7 +43,7 @@ Do **not** open new Foundation tickets unless something foundational is missing.
 
 ---
 
-## Sprint 2 — Basic Voice Agent ← Now
+## Sprint 2 — Basic Voice Agent (wrap-up)
 
 **Goal:** Browser-based English voice loop: mic → STT → LLM → TTS → play, with session context, UI, E2E path, and logging. Not yet multilingual, appointments, wait/barge-in polish, or full RAG.
 
@@ -59,7 +59,7 @@ Do **not** open new Foundation tickets unless something foundational is missing.
 | P1 | [KAN-14](https://voiceagentai.atlassian.net/browse/KAN-14) | Real-time voice conversation pipeline | Backend | Done |
 | P1 | [KAN-16](https://voiceagentai.atlassian.net/browse/KAN-16) | Voice agent UI (+ backend CORS) | Frontend / Backend | CORS Done (PR #8); UI in FE repo |
 | P2 | [KAN-17](https://voiceagentai.atlassian.net/browse/KAN-17) | End-to-end browser voice conversation | Full Stack | Done |
-| P2 | [KAN-18](https://voiceagentai.atlassian.net/browse/KAN-18) | Voice pipeline logging & error handling | Backend | To Do |
+| P2 | [KAN-18](https://voiceagentai.atlassian.net/browse/KAN-18) | Voice pipeline logging & error handling | Full Stack | Done |
 | P2 | [KAN-21](https://voiceagentai.atlassian.net/browse/KAN-21) | Postman collection for HTTP APIs | Backend | Done |
 
 **Suggested order:** KAN-10 → KAN-11 / KAN-12 / KAN-13 → KAN-15 → KAN-14 → KAN-16 → KAN-17, with KAN-18 in parallel after pipeline exists. KAN-21 can land anytime after routes exist.
@@ -72,16 +72,39 @@ Detail table: [`BACKLOG.md`](BACKLOG.md).
 
 ---
 
-## Sprint 3 — Multilingual Voice
+## Sprint 3 — Multilingual Voice ← Now
 
-**Goal:** English, Hindi, and Hinglish in one session; mid-call language switch without losing context.
+**Goal:** English, Hindi, and Hinglish in **one** conversation engine (not three agents); mid-call language switch without losing context; UI language indicator; fallback; automated multilingual scenarios. **No appointment booking logic in this sprint.**
 
-Typical tickets (create when Sprint 2 closes):
+**Epic:** [KAN-22](https://voiceagentai.atlassian.net/browse/KAN-22) — Sprint 3 — Multilingual Voice Agent
 
-- Language detection / preference on call + `conversation_states.language`
-- Prompt + STT/TTS provider settings for Hindi / Hinglish
-- Language-switch flows and tests
-- Logging `LANGUAGE_CHANGED` events
+### Architecture (required)
+
+```
+User Speech → STT → Language Detection → (Language State + Intent)
+  → Conversation Engine → LLM → Response Language → TTS → User Audio
+```
+
+### Stories (parent = KAN-22)
+
+| Priority | Ticket | Summary | Owner |
+| -------- | ------ | ------- | ----- |
+| P0 | [KAN-23](https://voiceagentai.atlassian.net/browse/KAN-23) | Implement Language Detection | Backend/AI |
+| P0 | [KAN-28](https://voiceagentai.atlassian.net/browse/KAN-28) | Implement Language Preference & Session State | Backend |
+| P0 | [KAN-24](https://voiceagentai.atlassian.net/browse/KAN-24) | Implement Multilingual STT | Backend/AI |
+| P0 | [KAN-25](https://voiceagentai.atlassian.net/browse/KAN-25) | Implement Multilingual LLM Conversation | Backend/AI |
+| P0 | [KAN-26](https://voiceagentai.atlassian.net/browse/KAN-26) | Implement Multilingual TTS | Backend/AI |
+| P1 | [KAN-27](https://voiceagentai.atlassian.net/browse/KAN-27) | Implement Dynamic Language Switching | Backend |
+| P1 | [KAN-30](https://voiceagentai.atlassian.net/browse/KAN-30) | Implement Multilingual Error & Fallback Handling | Backend |
+| P1 | [KAN-29](https://voiceagentai.atlassian.net/browse/KAN-29) | Implement Multilingual Voice UI | Frontend |
+| P2 | [KAN-31](https://voiceagentai.atlassian.net/browse/KAN-31) | Implement Multilingual End-to-End Flow | Full Stack |
+| P2 | [KAN-32](https://voiceagentai.atlassian.net/browse/KAN-32) | Create Multilingual Test Scenarios | QA/Full Stack |
+
+**Suggested order:** KAN-23 → KAN-28 → KAN-24 / KAN-25 / KAN-26 → KAN-27 → KAN-30 → KAN-29 → KAN-31 → KAN-32.
+
+**Sprint 3 out of scope:** appointment book/cancel/reschedule (Sprint 4); wait/barge-in (Sprint 5); RAG (Sprint 6); adaptive TTS (Sprint 7); 300-scenario suite (Sprint 8); separate EN/HI/Hinglish agents.
+
+Detail table: [`BACKLOG.md`](BACKLOG.md).
 
 ---
 
@@ -155,11 +178,11 @@ Typical tickets:
 
 ## Rules for agents
 
-1. **Default new tickets → Sprint 2** until this doc marks a later sprint as current.
+1. **Default new tickets → Sprint 3** until this doc marks a later sprint as current.
 2. Every ticket still needs High-Level Flow, Description, Test Cases, Acceptance Criteria.
 3. After creating tickets, update [`BACKLOG.md`](BACKLOG.md) and the sprint table above.
-4. When Sprint 2 is complete, flip **Current sprint** to Sprint 3 and move leftover items explicitly.
-5. Prefer extending existing KAN keys over duplicating Sprint 2 stories.
+4. Finish any Sprint 2 leftovers (e.g. KAN-18) explicitly; do not mix Sprint 4+ appointment themes into Sprint 3.
+5. Prefer extending existing KAN keys over duplicating Sprint 3 stories.
 
 ## Related docs
 

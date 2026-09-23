@@ -85,7 +85,8 @@ Then: ...
 2. Match flows to the real architecture (browser mic POC; no telephony unless explicitly requested).
 3. Backend tickets reference `src/` paths; frontend tickets belong to the **separate frontend repo** but may still be tracked on the same Jira board.
 4. **Backend product scope** comes from [`docs/backend/SRD_BACKEND.md`](../backend/SRD_BACKEND.md) (appointment tools, state, RAG, safety, error handling). Derive ticket Description / Test Cases / Acceptance Criteria from the matching SRD sections; link that doc in the ticket. When updating an existing backend ticket, re-check it against the SRD so scope does not drift.
-5. **Sprint placement** comes from [`SPRINT_PLAN.md`](SPRINT_PLAN.md). New tickets go into the **current sprint** (today: Sprint 2 — Basic Voice Agent) unless the user names a later sprint. Do not mix Sprint 4+ appointment/RAG themes into Sprint 2. Update [`BACKLOG.md`](BACKLOG.md) after creating tickets.
+4a. **On every user request to do work:** agents must check knowledge docs + SRD first, then **edit the Jira description** if scope changed, sections are missing, or the ticket conflicts with docs. Do not leave a stale ticket while implementing the new ask.
+5. **Sprint placement** comes from [`SPRINT_PLAN.md`](SPRINT_PLAN.md). New tickets go into the **current sprint** (today: Sprint 3 — Multilingual Voice) unless the user names a later sprint. Do not mix Sprint 4+ appointment/RAG themes into Sprint 3. Update [`BACKLOG.md`](BACKLOG.md) after creating tickets.
 6. After creating tickets, add key IDs to [`docs/process/BACKLOG.md`](BACKLOG.md) and mention them in `ARCHITECTURE.md` when they become active work.
 7. Prefer Story work type unless the board standard says otherwise.
 8. Implementation follows [`BRANCH_AND_PR.md`](BRANCH_AND_PR.md): confirm ticket key → named branch → PR on push.
