@@ -1,0 +1,28 @@
+---
+description: After every code/config change, run smoke tests; fix on fail; show results on pass
+alwaysApply: true
+---
+
+# Smoke testing after every change
+
+On **every** implement / fix / config change that can affect runtime behavior (backend, frontend, or shared contracts):
+
+## Required loop
+
+1. Make the change (code, config, docs that describe APIs/flows).
+2. **Run smoke testing** for the touched path (see [`docs/process/SMOKE_TESTING.md`](docs/process/SMOKE_TESTING.md)).
+3. If smoke **fails** → fix the code (or config), then **re-run smoke**. Do not stop at “tests written” or “PR ready” while smoke is red.
+4. If smoke **succeeds** → **show the user the results** (concise table or checklist of what passed: endpoints, statuses, key fields, no secret leakage).
+
+## Rules
+
+- Prefer a real HTTP / UI path over unit tests alone when the change touches a live pipeline (health, session, voice turn, etc.).
+- Do not invent green smoke: report actual status codes and outcomes.
+- Never paste API keys, tokens, or raw `.env` values in smoke output shown to the user.
+- Docs-only edits with no runtime impact do not require a live smoke run; say so briefly when skipping.
+
+## Related
+
+- [`docs/process/SMOKE_TESTING.md`](docs/process/SMOKE_TESTING.md)
+- [`docs/process/BRANCH_AND_PR.md`](docs/process/BRANCH_AND_PR.md)
+- [`AGENTS.md`](AGENTS.md)

@@ -128,7 +128,7 @@ flowchart LR
 | -------- | ------ |
 | High-level diagram | Mermaid (preferred) or ASCII; same path as the Jira High-Level Flow |
 | Description | Why + scope in/out + Jira link; note companion BE/FE PR when full-stack |
-| Test cases | Every ticket `TC-00x`, plus `npm test`, docs, and any manual smoke |
+| Test cases | Every ticket `TC-00x`, plus `npm test`, docs, and smoke per [`SMOKE_TESTING.md`](SMOKE_TESTING.md) |
 | No secrets | No `.env`, keys, or raw provider payloads in the PR body |
 
 Use `gh pr create` / `gh pr edit` with this body. After opening a thin PR by mistake, **edit the body immediately** to match this template.
@@ -145,6 +145,7 @@ Use `gh pr create` / `gh pr edit` with this body. After opening a thin PR by mis
 - [ ] Branch named `feat|fix|bugfix/{KEY}-{short-title}`
 - [ ] Ticket test cases checked and covered
 - [ ] Automated tests added/updated; `npm test` passes
+- [ ] Smoke path run; on fail fix + re-run; on pass results shown to the user ([`SMOKE_TESTING.md`](SMOKE_TESTING.md))
 - [ ] Knowledge docs updated to match the change
 - [ ] Implementation matches ticket AC
 - [ ] Pushed branch **and** opened PR with matching title
@@ -154,5 +155,6 @@ Use `gh pr create` / `gh pr edit` with this body. After opening a thin PR by mis
 ## Related docs
 
 - [`TICKET_STANDARDS.md`](TICKET_STANDARDS.md)
+- [`SMOKE_TESTING.md`](SMOKE_TESTING.md)
 - [`BACKLOG.md`](BACKLOG.md)
 - [`AGENTS.md`](../../AGENTS.md)

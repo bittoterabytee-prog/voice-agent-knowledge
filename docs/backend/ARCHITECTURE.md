@@ -2,7 +2,7 @@
 
 High-level architecture for the **AI Voice Agent** browser-based POC.
 
-Related tickets: [KAN-5](https://voiceagentai.atlassian.net/browse/KAN-5), [KAN-7](https://voiceagentai.atlassian.net/browse/KAN-7), [KAN-8](https://voiceagentai.atlassian.net/browse/KAN-8), [KAN-9](https://voiceagentai.atlassian.net/browse/KAN-9). **Current sprint:** Sprint 2 — Basic Voice Agent ([`docs/process/SPRINT_PLAN.md`](docs/process/SPRINT_PLAN.md)). Voice backlog: [`docs/process/BACKLOG.md`](docs/process/BACKLOG.md) (KAN-10–KAN-18).
+Related tickets: [KAN-5](https://voiceagentai.atlassian.net/browse/KAN-5), [KAN-7](https://voiceagentai.atlassian.net/browse/KAN-7), [KAN-8](https://voiceagentai.atlassian.net/browse/KAN-8), [KAN-9](https://voiceagentai.atlassian.net/browse/KAN-9), [KAN-23](https://voiceagentai.atlassian.net/browse/KAN-23). **Current sprint:** Sprint 3 — Multilingual Voice ([`docs/process/SPRINT_PLAN.md`](docs/process/SPRINT_PLAN.md)). Voice backlog: [`docs/process/BACKLOG.md`](docs/process/BACKLOG.md).
 
 ## Stack
 
@@ -57,7 +57,7 @@ Related tickets: [KAN-5](https://voiceagentai.atlassian.net/browse/KAN-5), [KAN-
 | Appointment persistence | `src/repositories/appointmentRepository.ts` |
 | Appointment agent tool | `src/tools/appointmentTools.ts` |
 | LLM | `src/ai/llmService.ts`, `src/ai/prompts.ts`, `POST /api/llm/complete` |
-| Browser voice / STT / TTS | `src/voice/` (`POST /api/voice/turn`, `POST /api/stt/transcribe`, `POST /api/tts/synthesize`) |
+| Browser voice / STT / language / TTS | `src/voice/` (`POST /api/voice/turn`, `POST /api/stt/transcribe`, `POST /api/tts/synthesize`) |
 | Schema | `migrations/001_init.sql` |
 
 > **Frontend** lives in a **separate repository**. This backend repo does not contain UI code.

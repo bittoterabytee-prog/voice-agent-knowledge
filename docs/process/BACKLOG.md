@@ -45,7 +45,7 @@ Complete: config, DB, MCP, architecture/process docs, backend SRD knowledge. See
 
 | # | Summary | Owner | Status | Jira | Subtasks |
 | - | ------- | ----- | ------ | ---- | -------- |
-| 1 | Implement Language Detection | Backend/AI | To Do | [KAN-23](https://voiceagentai.atlassian.net/browse/KAN-23) | [KAN-33](https://voiceagentai.atlassian.net/browse/KAN-33), [KAN-34](https://voiceagentai.atlassian.net/browse/KAN-34), [KAN-35](https://voiceagentai.atlassian.net/browse/KAN-35) |
+| 1 | Implement Language Detection | Backend/AI | Done | [KAN-23](https://voiceagentai.atlassian.net/browse/KAN-23) | [KAN-33](https://voiceagentai.atlassian.net/browse/KAN-33), [KAN-34](https://voiceagentai.atlassian.net/browse/KAN-34), [KAN-35](https://voiceagentai.atlassian.net/browse/KAN-35) |
 | 2 | Implement Multilingual STT | Backend/AI | To Do | [KAN-24](https://voiceagentai.atlassian.net/browse/KAN-24) | [KAN-36](https://voiceagentai.atlassian.net/browse/KAN-36), [KAN-37](https://voiceagentai.atlassian.net/browse/KAN-37), [KAN-38](https://voiceagentai.atlassian.net/browse/KAN-38) |
 | 3 | Implement Multilingual LLM Conversation | Backend/AI | To Do | [KAN-25](https://voiceagentai.atlassian.net/browse/KAN-25) | [KAN-39](https://voiceagentai.atlassian.net/browse/KAN-39), [KAN-40](https://voiceagentai.atlassian.net/browse/KAN-40), [KAN-41](https://voiceagentai.atlassian.net/browse/KAN-41) |
 | 4 | Implement Multilingual TTS | Backend/AI | To Do | [KAN-26](https://voiceagentai.atlassian.net/browse/KAN-26) | [KAN-42](https://voiceagentai.atlassian.net/browse/KAN-42), [KAN-43](https://voiceagentai.atlassian.net/browse/KAN-43), [KAN-44](https://voiceagentai.atlassian.net/browse/KAN-44) |

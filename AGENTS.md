@@ -42,3 +42,4 @@ See [`.cursor/rules/knowledge-srd-jira.mdc`](.cursor/rules/knowledge-srd-jira.md
 2. Add or update tests
 3. Update knowledge in the code repo **and** sync relevant files here when shared docs change
 4. Backend HTTP routes → update Postman in `voice-agent`
+5. **Smoke test** the change ([`docs/process/SMOKE_TESTING.md`](docs/process/SMOKE_TESTING.md)): if smoke fails, fix and re-run; if it passes, **show the user the results**. See [`.cursor/rules/smoke-testing.mdc`](.cursor/rules/smoke-testing.mdc).
