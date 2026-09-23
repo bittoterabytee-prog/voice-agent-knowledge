@@ -32,7 +32,7 @@ docs/                    Project knowledge (KAN-9+)
 | `/` | `DashboardPage` | Live call monitor (SRD §33 demo) + voice legend + System Status |
 | `/calls` | `CallsPage` | Voice agent E2E (KAN-17) + mic diagnostics (KAN-10) + voice state reference |
 | `/history` | `CallHistoryPage` | Recent appointment-agent sessions (demo table) |
-| `/settings` | `SettingsPage` | Shows resolved `VITE_API_BASE_URL` |
+| `/settings` | `SettingsPage` | Shows resolved `VITE_API_BASE_URL` + estimated POC spend (`GET /api/usage/summary`) |
 | `*` | redirect | → `/` |
 
 Nav labels live in `src/utils/constants.ts` (`NAV_ITEMS`).

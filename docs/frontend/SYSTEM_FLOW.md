@@ -18,9 +18,9 @@ React app boots
 DashboardLayout + Sidebar navigation
       │
       ├── /          Live call monitor (KAN-19 demo) + System Status
-      ├── /calls     Voice agent E2E (KAN-17) + mic diagnostics (KAN-10) + voice states
-      ├── /history   Call history table (KAN-19 demo)
-      └── /settings  Shows resolved VITE_API_BASE_URL
+      ├── /calls     Voice agent E2E (KAN-17) + mic diagnostics (KAN-10) + pipeline logs + est. cost (KAN-18)
+      ├── /history   Call History + session logs + per-call est. cost (KAN-18)
+      └── /settings  API base URL + POC spend so far (KAN-18)
       │
       ▼
 Dashboard System Status panel

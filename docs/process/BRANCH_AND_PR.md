@@ -73,6 +73,7 @@ When the work is ready to share (or the user asks to push / open a PR):
 1. Push the branch with upstream tracking: `git push -u origin HEAD`
 2. **Open a pull request** into `main` (default base unless told otherwise).
 3. PR title and branch should stay aligned with the naming convention.
+4. **Fill the full PR body** below — do not ship a Summary-only / Test-plan-only stub. Mirror the ticket’s High-Level Flow, Purpose/Scope, and TC-001… checklist. Use repo `.github/pull_request_template.md` when present.
 
 ### PR title
 
@@ -86,22 +87,51 @@ Examples:
 - `bugfix: Handle empty STT audio payload (KAN-XX)`
 - `fix: Clarify DATABASE_URL validation error (KAN-XX)`
 
-### PR body (minimum)
+### PR body (required — all sections)
 
-```markdown
-## Summary
-- <what changed and why>
-- Jira: https://voiceagentai.atlassian.net/browse/{KEY}
+Agents **must** include every section. Thin “Summary + Test plan” bodies are incomplete.
 
-## Test plan
-- [ ] Ticket test cases reviewed and covered (list TC-xxx)
-- [ ] Automated tests added/updated under `tests/`
-- [ ] `npm test` passed
-- [ ] Knowledge docs updated for this change
-- [ ] Manual check against acceptance criteria
+~~~~markdown
+## High-level diagram
+
+```mermaid
+flowchart LR
+  A[Entry / trigger] --> B[Changed module] --> C[Observable result]
 ```
 
-Use `gh pr create` when available. Link the Jira ticket in the summary.
+<!-- Prefer mermaid. ASCII is OK when mermaid is awkward. Match the ticket High-Level Flow. -->
+
+## Description
+
+<!-- What changed and why. Scope in/out. Link Jira. Companion PRs if full-stack. -->
+
+- <what / why>
+- Scope in: ...
+- Scope out: ...
+- Jira: https://voiceagentai.atlassian.net/browse/{KEY}
+- Companion PR (if any): <url>
+
+## Test cases
+
+<!-- List every ticket TC (Given/When/Then or short title). Mark automated vs manual. -->
+
+- [ ] TC-001 - <name / given-when-then>
+- [ ] TC-002 - ...
+- [ ] `npm test` passes (`tests/...` suites touched)
+- [ ] Docs updated (list paths)
+- [ ] Manual check against acceptance criteria
+~~~~
+
+### PR body rules
+
+| Required | Detail |
+| -------- | ------ |
+| High-level diagram | Mermaid (preferred) or ASCII; same path as the Jira High-Level Flow |
+| Description | Why + scope in/out + Jira link; note companion BE/FE PR when full-stack |
+| Test cases | Every ticket `TC-00x`, plus `npm test`, docs, and any manual smoke |
+| No secrets | No `.env`, keys, or raw provider payloads in the PR body |
+
+Use `gh pr create` / `gh pr edit` with this body. After opening a thin PR by mistake, **edit the body immediately** to match this template.
 
 ## After merge
 
@@ -118,6 +148,7 @@ Use `gh pr create` when available. Link the Jira ticket in the summary.
 - [ ] Knowledge docs updated to match the change
 - [ ] Implementation matches ticket AC
 - [ ] Pushed branch **and** opened PR with matching title
+- [ ] PR body has **diagram + description + full TC checklist** (not Summary-only)
 - [ ] No secrets in the PR
 
 ## Related docs

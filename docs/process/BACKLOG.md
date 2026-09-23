@@ -1,9 +1,9 @@
 # Product backlog (by sprint)
 
 Stories follow [`TICKET_STANDARDS.md`](TICKET_STANDARDS.md).  
-**Sprint roadmap:** [`SPRINT_PLAN.md`](SPRINT_PLAN.md) — **current = Sprint 2 (Basic Voice Agent)**.
+**Sprint roadmap:** [`SPRINT_PLAN.md`](SPRINT_PLAN.md) — **current = Sprint 3 (Multilingual Voice)**.
 
-Frontend work lives in the **separate frontend repository**; backend work in this repo (`voice-agent`).
+Frontend work lives in the **separate frontend repository**; backend work in `voice-agent`.
 
 ---
 
@@ -18,7 +18,7 @@ Complete: config, DB, MCP, architecture/process docs, backend SRD knowledge. See
 
 ---
 
-## Sprint 2 — Basic Voice Agent ← Now (To Do)
+## Sprint 2 — Basic Voice Agent (wrap-up)
 
 | # | Summary | Owner | Status | Jira |
 | - | ------- | ----- | ------ | ---- |
@@ -30,18 +30,35 @@ Complete: config, DB, MCP, architecture/process docs, backend SRD knowledge. See
 | 12 | Implement Conversation Session & Context Management | Backend | Done | [KAN-15](https://voiceagentai.atlassian.net/browse/KAN-15) |
 | 13 | Implement Voice Agent UI (+ backend CORS for :5174) | Frontend / Backend | CORS Done; UI in FE repo | [KAN-16](https://voiceagentai.atlassian.net/browse/KAN-16) |
 | 14 | Implement End-to-End Browser Voice Conversation | Full Stack | Done | [KAN-17](https://voiceagentai.atlassian.net/browse/KAN-17) |
-| 15 | Add Voice Pipeline Logging & Error Handling | Backend | To Do | [KAN-18](https://voiceagentai.atlassian.net/browse/KAN-18) |
+| 15 | Add Voice Pipeline Logging & Error Handling (+ est. cost / POC spend) | Full Stack | In Progress | [KAN-18](https://voiceagentai.atlassian.net/browse/KAN-18) |
 | 16 | Add Postman collection for all HTTP APIs | Backend | Done | [KAN-21](https://voiceagentai.atlassian.net/browse/KAN-21) |
 
 **E2E runbook (KAN-17):** [`../testing/E2E_BROWSER_VOICE.md`](../testing/E2E_BROWSER_VOICE.md).
 
-**Epic (Sprint 2 container):** Create Epic **Sprint 2 — Basic Voice Agent** in Jira and set Parent on KAN-10–KAN-18 / KAN-21 (label `sprint-2`). Until then, treat those keys as the active sprint To Do set per this doc.
+---
 
-**Dependency order:** **KAN-10 → KAN-11/12/13 → KAN-15 → KAN-14 → KAN-16 → KAN-17**, with **KAN-18** in parallel once the pipeline exists.
+## Sprint 3 — Multilingual Voice ← Now
 
-Each ticket includes: **Purpose/Description**, **High-Level Flow**, **Test Cases**, **Acceptance Criteria** (plus Scope / Dependencies / Definition of Done).
+**Epic:** [KAN-22](https://voiceagentai.atlassian.net/browse/KAN-22) — Sprint 3 — Multilingual Voice Agent  
+**Labels:** `sprint-3`, `multilingual`, `voice`  
+**Architecture:** one conversation engine (not separate EN/HI/Hinglish agents). **No appointment logic.**
 
-**Jira board action:** keep KAN-10–KAN-18 on the **active Sprint 2** board as To Do / In Progress (KAN-10–KAN-12 Done). Do not pull Sprint 3–8 themes into Sprint 2.
+| # | Summary | Owner | Status | Jira | Subtasks |
+| - | ------- | ----- | ------ | ---- | -------- |
+| 1 | Implement Language Detection | Backend/AI | To Do | [KAN-23](https://voiceagentai.atlassian.net/browse/KAN-23) | [KAN-33](https://voiceagentai.atlassian.net/browse/KAN-33), [KAN-34](https://voiceagentai.atlassian.net/browse/KAN-34), [KAN-35](https://voiceagentai.atlassian.net/browse/KAN-35) |
+| 2 | Implement Multilingual STT | Backend/AI | To Do | [KAN-24](https://voiceagentai.atlassian.net/browse/KAN-24) | [KAN-36](https://voiceagentai.atlassian.net/browse/KAN-36), [KAN-37](https://voiceagentai.atlassian.net/browse/KAN-37), [KAN-38](https://voiceagentai.atlassian.net/browse/KAN-38) |
+| 3 | Implement Multilingual LLM Conversation | Backend/AI | To Do | [KAN-25](https://voiceagentai.atlassian.net/browse/KAN-25) | [KAN-39](https://voiceagentai.atlassian.net/browse/KAN-39), [KAN-40](https://voiceagentai.atlassian.net/browse/KAN-40), [KAN-41](https://voiceagentai.atlassian.net/browse/KAN-41) |
+| 4 | Implement Multilingual TTS | Backend/AI | To Do | [KAN-26](https://voiceagentai.atlassian.net/browse/KAN-26) | [KAN-42](https://voiceagentai.atlassian.net/browse/KAN-42), [KAN-43](https://voiceagentai.atlassian.net/browse/KAN-43), [KAN-44](https://voiceagentai.atlassian.net/browse/KAN-44) |
+| 5 | Implement Dynamic Language Switching | Backend | To Do | [KAN-27](https://voiceagentai.atlassian.net/browse/KAN-27) | [KAN-45](https://voiceagentai.atlassian.net/browse/KAN-45), [KAN-46](https://voiceagentai.atlassian.net/browse/KAN-46), [KAN-47](https://voiceagentai.atlassian.net/browse/KAN-47) |
+| 6 | Implement Language Preference & Session State | Backend | To Do | [KAN-28](https://voiceagentai.atlassian.net/browse/KAN-28) | [KAN-48](https://voiceagentai.atlassian.net/browse/KAN-48), [KAN-49](https://voiceagentai.atlassian.net/browse/KAN-49), [KAN-50](https://voiceagentai.atlassian.net/browse/KAN-50) |
+| 7 | Implement Multilingual Voice UI | Frontend | To Do | [KAN-29](https://voiceagentai.atlassian.net/browse/KAN-29) | [KAN-51](https://voiceagentai.atlassian.net/browse/KAN-51), [KAN-52](https://voiceagentai.atlassian.net/browse/KAN-52), [KAN-53](https://voiceagentai.atlassian.net/browse/KAN-53) |
+| 8 | Implement Multilingual Error & Fallback Handling | Backend | To Do | [KAN-30](https://voiceagentai.atlassian.net/browse/KAN-30) | [KAN-54](https://voiceagentai.atlassian.net/browse/KAN-54), [KAN-55](https://voiceagentai.atlassian.net/browse/KAN-55), [KAN-56](https://voiceagentai.atlassian.net/browse/KAN-56) |
+| 9 | Implement Multilingual End-to-End Flow | Full Stack | To Do | [KAN-31](https://voiceagentai.atlassian.net/browse/KAN-31) | [KAN-57](https://voiceagentai.atlassian.net/browse/KAN-57), [KAN-58](https://voiceagentai.atlassian.net/browse/KAN-58), [KAN-59](https://voiceagentai.atlassian.net/browse/KAN-59) |
+| 10 | Create Multilingual Test Scenarios | QA/Full Stack | To Do | [KAN-32](https://voiceagentai.atlassian.net/browse/KAN-32) | [KAN-60](https://voiceagentai.atlassian.net/browse/KAN-60), [KAN-61](https://voiceagentai.atlassian.net/browse/KAN-61), [KAN-62](https://voiceagentai.atlassian.net/browse/KAN-62) |
+
+**Suggested order:** **KAN-23 → KAN-28 → KAN-24 / KAN-25 / KAN-26 → KAN-27 → KAN-30 → KAN-29 → KAN-31 → KAN-32**.
+
+Each story includes: **Purpose**, **Scope**, **High-Level Flow**, **Test Cases**, **Acceptance Criteria**, **Definition of Done** (per [`TICKET_STANDARDS.md`](TICKET_STANDARDS.md)).
 
 ---
 
@@ -49,7 +66,6 @@ Each ticket includes: **Purpose/Description**, **High-Level Flow**, **Test Cases
 
 | Sprint | Theme | Ticket status |
 | ------ | ----- | ------------- |
-| 3 | Multilingual Voice | Not created yet — draft from [`SPRINT_PLAN.md`](SPRINT_PLAN.md) when Sprint 2 ends |
 | 4 | Appointment System | Not created yet |
 | 5 | Human-like Conversation Behavior | Not created yet |
 | 6 | RAG + Tools | Not created yet |

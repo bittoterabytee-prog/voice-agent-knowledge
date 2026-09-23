@@ -1,0 +1,36 @@
+---
+description: Before any task, check knowledge + SRD; update Jira when scope drifts
+alwaysApply: true
+---
+
+# Knowledge, SRD, and Jira sync
+
+On **every** user request to implement, change, or plan work:
+
+## 1. Check knowledge + SRD first
+
+Before coding or inventing scope, read the relevant docs in this knowledge repo:
+
+- [`docs/overview/PRODUCT.md`](docs/overview/PRODUCT.md)
+- [`docs/process/SPRINT_PLAN.md`](docs/process/SPRINT_PLAN.md)
+- [`docs/process/TICKET_STANDARDS.md`](docs/process/TICKET_STANDARDS.md)
+- Backend → [`docs/backend/SRD_BACKEND.md`](docs/backend/SRD_BACKEND.md) plus `ARCHITECTURE.md` / `SYSTEM_FLOW.md` / `API_DOCUMENTATION.md`
+- Frontend → [`docs/frontend/`](docs/frontend/) (especially `ARCHITECTURE.md`, `SYSTEM_FLOW.md`, `PROJECT_RULES.md`)
+
+Prefer **repo docs + source** over assumptions. Align the work with the SRD and current sprint.
+
+## 2. Confirm / update the Jira ticket
+
+1. Confirm the Jira key (ask if missing).
+2. Read the existing ticket description.
+3. **Update the Jira description** when any of these are true:
+   - User request adds, removes, or changes scope vs the ticket
+   - Ticket is missing required sections (Purpose, Scope, High-Level Flow, Test Cases, Acceptance Criteria)
+   - Ticket conflicts with SRD / knowledge docs (fix the ticket to match docs, or update docs if product intent changed)
+4. Keep Description / Test Cases / Acceptance Criteria derived from the matching SRD sections; link those docs in the ticket.
+
+Use available Jira/Atlassian tooling when configured; otherwise draft the full updated description for the user to paste and say what changed.
+
+## 3. Then implement
+
+Only after knowledge/SRD alignment and ticket sync: branch, code, tests, and knowledge updates per [`AGENTS.md`](AGENTS.md).
